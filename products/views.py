@@ -23,7 +23,6 @@ PAGE_SIZE = 2
 
 def main_page_view(request):
     page = int(request.GET.get('page', '1'))  # 1, 2
-    print('Страница:', page)
     print(f'Объекты: [{(page - 1) * PAGE_SIZE}:{page * PAGE_SIZE}]')
     products = Product.objects.all()
     total = products.count()
