@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Добавление товаров</h1>
+    <form action="/add_product/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type = 'submit' value = 'Добавить'>
+    </form>
+{% endblock %}

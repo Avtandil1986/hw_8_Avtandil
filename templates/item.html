@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Детали: {{ title }}</h1>
+    <span>ID: {{ product.id }}</span><br/>
+    <a href="/products/{{ product.id }}/">Title:{{ product.title }}</a><br/>
+    <span>Price:{{ product.price }}</span>
+    <br>
+    <span>Category:{{ product.category }}</span>
+    <br>
+    <span>Tags:
+        {% for tag in product.tags.all %} {{ tag.name }}  {% endfor %}
+</span>
+    <hr/>
+{% endblock %}

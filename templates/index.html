@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% for product in product_list %}
+        <span>ID: {{ product.id }}</span><br/>
+        <a href="/products/{{ product.id }}/">Title:{{ product.title }}</a><br/>
+        <span>Price:{{ product.price }}</span>
+        <hr/>
+    {% endfor %}
+    <br>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item {% if page == 1 %} disabled {% endif %}">
+                <a class="page-link" href="/?page={{ prev_page }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% for i in page_count %}
+                <li class="page-item {% if i == page %} active {% endif %}"><a class="page-link"
+                                                                               href="/?page={{ i }}">{{ i }}</a></li>
+            {% endfor %}
+            <li class="page-item {% if page == last_page %} disabled {% endif %}">
+                <a class="page-link" href="/?page={{ next_page }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
